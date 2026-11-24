@@ -1,0 +1,2531 @@
+/* ==========================================================================
+   Universitet Zakovat Klubi — Design System (inspired by zakovatklubi.uz)
+   Dual-theme: Dark Luxury Editorial (Home) + Clean Crisp Light (Archive)
+   ========================================================================== */
+
+:root {
+  /* Signature Zakovat Gold Palette */
+  --gold: #cba672;
+  --gold-hover: #bb925a;
+  --gold-warm: #dbad62;
+  --gold-light: #e7cca5;
+  --gold-bright: #fae8a9;
+  --gold-bronze: #886830;
+  --gold-deep: #8c6836;
+  --gold-glow: rgba(203, 166, 114, 0.5);
+  --gold-glow-strong: rgba(203, 166, 114, 0.6);
+  --gold-cream: #fffaf3;
+  --gold-tint: #fff5e7;
+  --gold-tint-hover: #faefe1;
+  --gold-score-bg: rgba(205, 138, 34, 0.35);
+
+  /* Dark Editorial Surfaces */
+  --dark-bg: #000000;
+  --dark-surface: #0b0a08;
+  --dark-input: #1e1912;
+  --dark-card: rgba(0, 0, 0, 0.42);
+  --dark-glass: rgba(255, 255, 255, 0.14);
+  --dark-frosted: rgba(255, 255, 255, 0.10);
+  --dark-border: rgba(255, 255, 255, 0.19);
+  --dark-divider: rgba(255, 255, 255, 0.35);
+  --dark-spectator-bg: rgba(156, 157, 161, 0.30);
+  --dark-footer-card: #2f2f2f;
+
+  /* Light Archive Surfaces */
+  --light-bg: #ffffff;
+  --light-surface: #ededf2;
+  --light-surface-alt: #ececf1;
+  --light-subtle: #f6f6f8;
+  --light-card: #ffffff;
+  --light-border: rgba(0, 0, 0, 0.10);
+
+  /* Typography Colors */
+  --text-white: #ffffff;
+  --text-white-sub: rgba(255, 255, 255, 0.80);
+  --text-white-muted: rgba(255, 255, 255, 0.65);
+  --text-white-faint: rgba(255, 255, 255, 0.38);
+
+  --text-dark: #000000;
+  --text-dark-sub: #323232;
+  --text-muted: rgba(0, 0, 0, 0.42);
+  --text-gray: #6f6f6f;
+  --text-placeholder: #8b8b8b;
+
+  /* Semantic */
+  --green: #2fa84f;
+  --green-soft: #eaf8ee;
+  --red: #d32929;
+  --red-soft: #fdecec;
+  --amber: #e5a50a;
+  --amber-soft: #fff8e6;
+
+  /* Layout & Radii */
+  --container: 1280px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 100px;
+  --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.theme-light {
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+
+body.theme-dark {
+  background-color: var(--dark-bg);
+  color: var(--text-white);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Buttons (Exact zakovatklubi.uz pill signature)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 13px 26px;
+  transition: all var(--transition);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background-color: var(--gold);
+  border: 2px solid var(--gold);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #ffffff;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+body.theme-light .btn-primary:hover {
+  background-color: var(--gold-hover);
+  color: #ffffff;
+  border-color: var(--gold-hover);
+  box-shadow: 0 6px 20px var(--gold-glow);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--gold);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--light-surface);
+  border: 1px solid transparent;
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #e1e1e9;
+}
+
+.btn-white-pill {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-dark-sub);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-weight: 500;
+  padding: 11px 20px;
+}
+
+.btn-white-pill:hover {
+  border-color: var(--gold);
+  color: var(--gold-hover);
+  box-shadow: 0 4px 14px rgba(203, 166, 114, 0.22);
+}
+
+.btn-white-pill.active {
+  background-color: var(--gold);
+  color: #ffffff;
+  border-color: var(--gold);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+.btn-lg {
+  padding: 15px 34px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Two-Tier Header (Transparent Dark on Home, Frosted White on Inner/Scroll)
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.header-dark {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.18) 80%, rgba(0, 0, 0, 0) 100%);
+  color: var(--text-white);
+}
+
+.site-header.header-dark.scrolled {
+  background: rgba(8, 7, 5, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.55);
+}
+
+.site-header.header-light {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--text-dark);
+  box-shadow: 0 4px 48px rgba(0, 0, 0, 0.07);
+}
+
+/* Top Utility Bar */
+.header-topbar {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 12px;
+  transition: height 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.site-header.header-light .header-topbar {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-gray);
+}
+
+.site-header.scrolled .header-topbar {
+  height: 0;
+  opacity: 0;
+  border-bottom-color: transparent;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar-contacts {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--text-white-muted);
+}
+
+.site-header.header-light .topbar-contacts {
+  color: var(--text-gray);
+}
+
+.topbar-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.topbar-contact-item:hover {
+  color: var(--gold);
+}
+
+.topbar-highlight {
+  color: var(--gold);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topbar-highlight:hover {
+  opacity: 0.85;
+}
+
+.topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-white-muted);
+}
+
+.site-header.header-light .topbar-links {
+  color: var(--text-gray);
+}
+
+.topbar-links a:hover {
+  color: var(--gold);
+}
+
+/* Main Navigation Bar */
+.header-main {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  transition: height 0.25s ease;
+}
+
+.site-header.scrolled .header-main {
+  height: 68px;
+}
+
+.header-main-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.brand-logo-svg {
+  height: 44px;
+  width: auto;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover .brand-logo-svg {
+  transform: scale(1.03);
+}
+
+.brand-subtitle {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-uni-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.site-header.header-light .brand-uni-name {
+  color: var(--text-gray);
+}
+
+.brand-club-tag {
+  font-size: 10px;
+  color: var(--text-white-faint);
+}
+
+.site-header.header-light .brand-club-tag {
+  color: var(--text-placeholder);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.site-header.header-light .nav-link.active::after {
+  background-color: #000000;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 6px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--gold);
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.practice-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--text-white);
+  transition: all 0.2s ease;
+}
+
+.practice-trigger:hover {
+  border-color: var(--gold);
+  background: rgba(203, 166, 114, 0.16);
+  color: var(--gold-light);
+}
+
+.site-header.header-light .practice-trigger {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: var(--text-dark);
+}
+
+.site-header.header-light .practice-trigger:hover {
+  border-color: var(--gold);
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+}
+
+.draft-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(229, 165, 10, 0.18);
+  border: 1px solid rgba(229, 165, 10, 0.6);
+  color: #f6c445;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.site-header.header-light .draft-indicator-pill {
+  color: #9e6c00;
+  background: #fff6dc;
+}
+
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.site-header.header-light .mobile-menu-btn {
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  background: #110f0c;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(203, 166, 114, 0.28);
+  padding: 18px 24px 24px;
+  z-index: 890;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+body.theme-light .mobile-drawer {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-drawer.open {
+  display: flex;
+}
+
+.mobile-drawer a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-drawer a.active {
+  background: rgba(203, 166, 114, 0.16);
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   Main Content Shell
+   ========================================================================== */
+
+#app-main {
+  flex: 1;
+  width: 100%;
+}
+
+/* ==========================================================================
+   HOME VIEW — Dark Luxury Editorial (zakovatklubi.uz)
+   ========================================================================== */
+
+.home-dark-shell {
+  position: relative;
+  background-color: var(--dark-bg);
+  color: var(--text-white);
+  overflow: hidden;
+}
+
+/* Ambient Bronze/Gold Orbs & Classical Geometric Framing */
+.home-ambient-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(136, 104, 48, 0.42) 0%, rgba(136, 104, 48, 0) 70%);
+  filter: blur(80px);
+}
+
+.ambient-orb-1 {
+  width: 680px;
+  height: 680px;
+  top: -80px;
+  right: 8%;
+}
+
+.ambient-orb-2 {
+  width: 560px;
+  height: 560px;
+  top: 780px;
+  left: -120px;
+  opacity: 0.65;
+}
+
+.ambient-orb-3 {
+  width: 620px;
+  height: 620px;
+  top: 1500px;
+  right: -140px;
+  opacity: 0.55;
+}
+
+/* Subtle diagonal architectural frame pattern like zakovatklubi.uz hero */
+.hero-geo-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(125deg, transparent 22%, rgba(203, 166, 114, 0.16) 22.3%, transparent 22.7%),
+    linear-gradient(125deg, transparent 25%, rgba(203, 166, 114, 0.11) 25.3%, transparent 25.7%),
+    linear-gradient(55deg, transparent 74%, rgba(203, 166, 114, 0.16) 74.3%, transparent 74.7%),
+    linear-gradient(55deg, transparent 77%, rgba(203, 166, 114, 0.11) 77.3%, transparent 77.7%);
+}
+
+/* Hero Section */
+.zk-hero {
+  position: relative;
+  z-index: 1;
+  min-height: 760px;
+  padding-top: 148px;
+  padding-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zk-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 42px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(203, 166, 114, 0.14);
+  border: 1px solid rgba(203, 166, 114, 0.35);
+  color: var(--gold-light);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero-title {
+  font-size: clamp(34px, 4.4vw, 60px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.hero-title .gold-accent {
+  color: var(--gold-light);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-white-sub);
+  max-width: 560px;
+  margin-bottom: 30px;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 38px;
+}
+
+.hero-dash-indicators {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-dash {
+  width: 52px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(203, 166, 114, 0.35);
+  transition: background-color 0.25s, width 0.25s;
+  cursor: pointer;
+}
+
+.hero-dash.active {
+  background: var(--gold);
+  width: 68px;
+}
+
+.hero-visual-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-hourglass-frame {
+  position: relative;
+  width: min(460px, 100%);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-hourglass-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  mask-image: radial-gradient(circle at 50% 50%, black 56%, transparent 76%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 56%, transparent 76%);
+  filter: contrast(1.06) drop-shadow(0 20px 55px rgba(203, 166, 114, 0.22));
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-9px); }
+}
+
+.hero-stat-floating {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  background: rgba(20, 16, 11, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(203, 166, 114, 0.35);
+  border-radius: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.hero-stat-floating-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.hero-stat-floating-lbl {
+  font-size: 12px;
+  color: var(--text-white-muted);
+  line-height: 1.25;
+}
+
+/* Signature Glassmorphic Hero Search Pill Bar */
+.hero-search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px 14px 86px;
+  border-radius: 48px;
+  background: var(--dark-glass);
+  border: 2px solid var(--dark-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.hero-search-trophy {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-56%);
+  width: 60px;
+  height: 68px;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(203, 166, 114, 0.4));
+}
+
+.hero-search-field {
+  flex: 1;
+  min-width: 150px;
+}
+
+.hero-search-input,
+.hero-search-select {
+  width: 100%;
+  height: 48px;
+  border-radius: 28px;
+  background-color: var(--dark-input);
+  border: 1px solid rgba(255, 223, 160, 0.16);
+  color: #ffffff;
+  padding: 0 18px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.hero-search-input:focus,
+.hero-search-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(203, 166, 114, 0.18);
+}
+
+.hero-search-select option {
+  background-color: #1a1610;
+  color: #ffffff;
+}
+
+.hero-search-btn {
+  height: 48px;
+  padding: 0 34px;
+  border-radius: 28px;
+  background-color: var(--gold);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.hero-search-btn:hover {
+  background-color: var(--gold-light);
+  color: #18130d;
+  box-shadow: 0 6px 24px var(--gold-glow);
+}
+
+/* Home Sections */
+.home-section {
+  position: relative;
+  z-index: 1;
+  padding: 44px 0 52px;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.section-heading-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.section-icon-dark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(203, 166, 114, 0.14);
+  border: 1px solid rgba(203, 166, 114, 0.28);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.section-title-dark {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.section-subtitle-dark {
+  font-size: 14px;
+  color: var(--text-white-muted);
+  margin-top: 5px;
+}
+
+.section-see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: color 0.2s, gap 0.2s;
+  white-space: nowrap;
+}
+
+.section-see-all:hover {
+  color: var(--gold);
+  gap: 12px;
+}
+
+/* Dark Translucent Game Cards (zakovatklubi.uz Televizion/So'nggi o'yinlar style) */
+.dark-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.zk-game-card {
+  background: var(--dark-card);
+  border: 2px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.zk-game-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(203, 166, 114, 0.65);
+  background: rgba(26, 21, 14, 0.62);
+}
+
+.zk-game-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--dark-divider);
+}
+
+.zk-game-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.zk-game-card-title {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.zk-game-card-date {
+  font-size: 12px;
+  color: var(--text-white-muted);
+  margin-top: 6px;
+}
+
+.zk-score-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.zk-score-box {
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  min-height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zk-score-box.gold-box {
+  background: var(--gold-score-bg);
+  border: 1px solid rgba(203, 166, 114, 0.35);
+}
+
+.zk-score-box.slate-box {
+  background: var(--dark-spectator-bg);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.zk-score-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.zk-score-value {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.zk-game-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-white-muted);
+}
+
+.zk-game-card-link {
+  color: var(--gold-light);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Frosted Tournament Cards (zakovatklubi.uz So'nggi turnirlar) */
+.dark-tournaments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.zk-tour-card {
+  background: var(--dark-frosted);
+  border: 2px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.zk-tour-card:hover {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+}
+
+.zk-tour-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.zk-tour-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bronze) 100%);
+  color: #14100a;
+  font-weight: 800;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(203, 166, 114, 0.35);
+}
+
+.zk-tour-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.zk-tour-status {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  opacity: 0.9;
+}
+
+.zk-tour-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.zk-tour-metric-lbl {
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+
+.zk-tour-metric-val {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+/* Recent Questions Preview (Dark Mode) */
+.dark-questions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.zk-dark-qcard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--dark-border);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.25s ease;
+}
+
+.zk-dark-qcard:hover {
+  border-color: rgba(203, 166, 114, 0.55);
+}
+
+.zk-dark-qcard-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.zk-dark-qnum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  border-radius: 20px;
+  background: rgba(203, 166, 114, 0.16);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.zk-dark-qtag {
+  font-size: 12px;
+  color: var(--text-white-muted);
+}
+
+.zk-dark-qtext {
+  font-size: 15px;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.zk-dark-answer-box {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(203, 166, 114, 0.12);
+  border-left: 3px solid var(--gold);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.zk-dark-answer-box strong {
+  color: var(--gold-bright);
+}
+
+.zk-dark-toggle-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.zk-dark-toggle-btn:hover {
+  background: var(--gold);
+  color: #14100a;
+}
+
+/* Home Statistics Strip + Topic Bar Chart (zakovatklubi.uz inspired) */
+.home-stats-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+}
+
+.stats-dark-panel {
+  background: var(--dark-card);
+  border: 2px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+}
+
+.stats-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stats-kpi-tile {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.stats-kpi-num {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.1;
+}
+
+.stats-kpi-lbl {
+  font-size: 13px;
+  color: var(--text-white-muted);
+  margin-top: 6px;
+}
+
+.topic-bars-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  height: 190px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.topic-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.topic-bar-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-bright);
+}
+
+.topic-bar-pill {
+  width: 28px;
+  min-height: 12px;
+  border-radius: 14px 14px 4px 4px;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-bronze) 100%);
+  box-shadow: 0 4px 16px rgba(203, 166, 114, 0.25);
+  transition: height 0.4s ease;
+}
+
+.topic-bar-lbl {
+  font-size: 11px;
+  color: var(--text-white-muted);
+  text-align: center;
+  padding-bottom: 8px;
+  max-width: 78px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   LIGHT WORKSPACE VIEWS (Savollar bazasi, Savollar paketi, Turnirlar)
+   Exact zakovatklubi.uz/open-question & /tournaments visual language
+   ========================================================================== */
+
+.light-page-shell {
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  padding-top: 142px;
+  padding-bottom: 84px;
+  min-height: 75vh;
+}
+
+/* Top Title & Mode Switch Capsule */
+.light-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.light-title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.light-title-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--light-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark-sub);
+  flex-shrink: 0;
+}
+
+.light-page-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+}
+
+.light-page-sub {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-top: 2px;
+}
+
+/* Segmented Gold Capsule Toggle (Savollar paketi | Savollar bazasi) */
+.mode-capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--gold);
+  background: #ffffff;
+  gap: 4px;
+}
+
+.mode-capsule-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark-sub);
+  transition: all 0.25s ease;
+}
+
+.mode-capsule-btn:hover {
+  color: var(--gold-deep);
+}
+
+.mode-capsule-btn.active {
+  background-color: var(--gold);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 16px var(--gold-glow);
+}
+
+/* 7-Column / Responsive Category Filter Tiles (Exact zakovatklubi.uz) */
+.category-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.category-tile {
+  min-height: 76px;
+  padding: 14px 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--light-surface);
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.25s ease;
+}
+
+.category-tile-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-gray);
+}
+
+.category-tile:hover {
+  background-color: var(--gold);
+  color: #ffffff;
+  box-shadow: 0 5px 20px var(--gold-glow);
+}
+
+.category-tile:hover .category-tile-count,
+.category-tile.active .category-tile-count {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.category-tile.active {
+  background-color: var(--gold);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 5px 20px var(--gold-glow);
+}
+
+/* Light Rounded Gray Container (Houses Filter Bar + Question/Packet Cards) */
+.archive-workspace-box {
+  background-color: var(--light-surface);
+  border-radius: var(--radius-xl);
+  padding: 22px;
+}
+
+/* Unified Segmented Search Pill Bar */
+.archive-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.archive-search-pill {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 0.9fr;
+  background: #ffffff;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  min-height: 54px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.archive-search-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border-right: 1px solid #e6e6ec;
+  min-width: 0;
+}
+
+.archive-search-cell:last-child {
+  border-right: none;
+}
+
+.archive-search-cell svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.archive-search-cell input,
+.archive-search-cell select {
+  width: 100%;
+  height: 52px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text-dark);
+  min-width: 0;
+}
+
+.archive-search-cell input::placeholder {
+  color: var(--text-placeholder);
+}
+
+.filter-circle-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.filter-circle-btn:hover {
+  background-color: var(--gold-hover);
+  box-shadow: 0 5px 18px var(--gold-glow);
+}
+
+.archive-search-submit {
+  height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-pill);
+  background-color: var(--gold);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.archive-search-submit:hover {
+  background-color: var(--gold-hover);
+  box-shadow: 0 5px 18px var(--gold-glow);
+}
+
+/* Action Bar Below Search */
+.archive-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.archive-result-meta {
+  font-size: 13px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.archive-result-meta strong {
+  color: var(--text-dark);
+}
+
+.archive-action-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Question Card (Exact zakovatklubi.uz/open-question?tab=2 fidelity)
+   ========================================================================== */
+
+.questions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.open-question-card {
+  background: var(--light-card);
+  border-radius: var(--radius-xl);
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  gap: 22px;
+  align-items: start;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.open-question-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  border-color: rgba(203, 166, 114, 0.4);
+}
+
+.q-num-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 20px;
+  background-color: var(--gold-cream);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.q-card-body {
+  min-width: 0;
+}
+
+.q-meta-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.q-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--light-surface);
+  color: var(--text-dark-sub);
+}
+
+.q-chip.gold {
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+}
+
+.q-chip.solved {
+  background: var(--green-soft);
+  color: #1f7a37;
+}
+
+.q-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.q-text {
+  font-size: 16px;
+  line-height: 1.62;
+  color: #141414;
+  white-space: pre-line;
+  margin-bottom: 16px;
+}
+
+/* Handout / Tarqatma Material */
+.q-handout-box {
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: var(--gold-cream);
+  border: 1px solid rgba(203, 166, 114, 0.45);
+  border-left: 4px solid var(--gold);
+}
+
+.q-handout-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 6px;
+}
+
+.q-handout-text {
+  font-size: 14px;
+  color: #2b2419;
+  white-space: pre-line;
+}
+
+.q-handout-img {
+  margin-top: 10px;
+  max-height: 300px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Reveal Answer Button & Revealed Block */
+.q-reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  background-color: var(--light-surface-alt);
+  color: var(--text-dark-sub);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.q-reveal-btn:hover {
+  background-color: var(--gold-tint);
+  color: var(--gold-deep);
+}
+
+.q-reveal-btn.revealed {
+  background-color: var(--gold);
+  color: #ffffff;
+}
+
+.q-answer-panel {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #ececf1;
+  animation: fadeSlideIn 0.22s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-answer-block {
+  margin-bottom: 14px;
+}
+
+.q-answer-block:last-child {
+  margin-bottom: 0;
+}
+
+.q-answer-main {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.q-answer-sub {
+  font-size: 15px;
+  color: #323232;
+  line-height: 1.58;
+  white-space: pre-line;
+}
+
+.q-answer-credits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+  padding-top: 10px;
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.q-answer-credits strong {
+  color: var(--text-dark-sub);
+}
+
+.q-dashed-divider {
+  margin-top: 20px;
+  border: none;
+  border-top: 1.5px dashed #d5d5de;
+}
+
+/* Right Action Column (Bookmark + Like + Copy) */
+.q-card-side-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.q-icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--light-surface-alt);
+  color: var(--text-dark-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.q-icon-circle:hover {
+  background-color: var(--gold-tint);
+  color: var(--gold-deep);
+}
+
+.q-icon-circle.active {
+  background-color: var(--gold);
+  color: #ffffff;
+}
+
+.q-like-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: var(--radius-pill);
+  background-color: var(--light-surface-alt);
+  color: var(--text-dark-sub);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.q-like-pill:hover {
+  background-color: var(--gold-tint);
+  color: var(--gold-deep);
+}
+
+.q-like-pill.active {
+  background-color: var(--gold);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Packet Card (Exact zakovatklubi.uz/open-question?tab=1 fidelity)
+   ========================================================================== */
+
+.packet-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  gap: 22px;
+  align-items: start;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.packet-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  border-color: rgba(203, 166, 114, 0.45);
+}
+
+.packet-title {
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: #000000;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.packet-desc {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+}
+
+.packet-meta-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+
+.packet-meta-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #000000;
+  margin-bottom: 3px;
+}
+
+.packet-meta-val {
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.packet-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.packet-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.packet-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--gold-tint);
+  color: var(--gold-deep);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.packet-badge-gray {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--light-surface);
+  color: var(--text-gray);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.packet-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Tournaments Table-Cards (Exact zakovatklubi.uz/tournaments fidelity)
+   ========================================================================== */
+
+.tournaments-table-wrap {
+  background-color: var(--light-surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.tournaments-table-head,
+.tournaments-table-row {
+  display: grid;
+  grid-template-columns: 72px 2.1fr 125px 125px 95px 100px 135px;
+  align-items: center;
+  gap: 14px;
+  min-width: 780px;
+}
+
+.tournaments-table-head {
+  padding: 10px 18px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-gray);
+}
+
+.tournaments-table-row {
+  background: #ffffff;
+  border-radius: 10px;
+  min-height: 68px;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.tournaments-table-row:last-child {
+  margin-bottom: 0;
+}
+
+.tournaments-table-row:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 18px rgba(203, 166, 114, 0.18);
+  transform: translateY(-1px);
+}
+
+.tour-id-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--light-surface);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-dark-sub);
+}
+
+.tour-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tour-mini-crest {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2a2115 0%, #5e4520 100%);
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tour-row-title {
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.tour-row-sub {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: var(--green-soft);
+  color: #1f7a37;
+}
+
+.status-badge.finished {
+  background: var(--light-surface);
+  color: var(--text-gray);
+}
+
+/* ==========================================================================
+   About / Rules Page (Light Mode)
+   ========================================================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.about-card {
+  background: var(--light-surface);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+}
+
+.about-inner-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-top: 16px;
+}
+
+.rules-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-dark-sub);
+}
+
+.rule-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  border: 1px solid var(--gold);
+  color: var(--gold-deep);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-top: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.faq-item summary {
+  padding: 15px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 18px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item p {
+  padding: 0 18px 16px;
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Practice / 60-Second Quiz Trainer Modal
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.practice-modal {
+  width: 100%;
+  max-width: 760px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #0e0c09;
+  color: #ffffff;
+  border: 1.5px solid rgba(203, 166, 114, 0.4);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75);
+}
+
+.practice-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 22px;
+}
+
+.timer-ring-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(203, 166, 114, 0.16);
+  border: 1.5px solid var(--gold);
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--gold-bright);
+}
+
+.timer-ring-box.warning {
+  border-color: #ff5d5d;
+  background: rgba(255, 93, 93, 0.18);
+  color: #ff9c9c;
+}
+
+.practice-q-text {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #ffffff;
+  margin: 16px 0 22px;
+  white-space: pre-line;
+}
+
+.practice-answer-reveal {
+  background: rgba(203, 166, 114, 0.14);
+  border: 1px solid rgba(203, 166, 114, 0.45);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+
+.practice-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+
+.empty-state {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 56px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold-tint);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: var(--text-gray);
+  max-width: 420px;
+}
+
+/* ==========================================================================
+   Footer (Exact zakovatklubi.uz black editorial footer)
+   ========================================================================== */
+
+.site-footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 64px 0 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 0.34fr 0.66fr;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.footer-quote {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 18px;
+  max-width: 300px;
+}
+
+.footer-callout-card {
+  position: relative;
+  background-color: var(--dark-footer-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.footer-callout-card::before {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(203, 166, 114, 0.28) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-callout-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.footer-callout-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 20px;
+  max-width: 460px;
+}
+
+.footer-callout-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-mid-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-contact-lbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.52);
+  margin-bottom: 4px;
+}
+
+.footer-contact-val {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.footer-social-btn:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #000000;
+}
+
+.footer-col-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-version-tag {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.36);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Toast Notification
+   ========================================================================== */
+
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #171410;
+  color: #ffffff;
+  border: 1px solid rgba(203, 166, 114, 0.55);
+  border-radius: 14px;
+  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toastSlide 0.25s ease;
+  max-width: 380px;
+}
+
+.toast.success { border-color: #32be3f; }
+.toast.error { border-color: #ff5d5d; }
+
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .main-nav { gap: 18px; }
+  .nav-link { font-size: 14px; }
+  .dark-cards-grid,
+  .dark-tournaments-grid { grid-template-columns: repeat(2, 1fr); }
+  .archive-search-pill { grid-template-columns: 1fr 1fr; border-radius: 18px; }
+  .archive-search-cell { border-bottom: 1px solid #e6e6ec; }
+  .footer-top-row { grid-template-columns: 1fr; }
+  .footer-mid-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .header-topbar { display: none; }
+  .main-nav, .practice-trigger { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .zk-hero { padding-top: 106px; min-height: auto; }
+  .zk-hero-grid { grid-template-columns: 1fr; text-align: left; }
+  .hero-hourglass-frame { width: 290px; margin: 0 auto; }
+  .hero-search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border-radius: 24px;
+  }
+  .hero-search-trophy { display: none; }
+  .dark-cards-grid,
+  .dark-tournaments-grid,
+  .dark-questions-grid,
+  .home-stats-layout,
+  .about-grid { grid-template-columns: 1fr; }
+  .light-page-shell { padding-top: 102px; }
+  .archive-filter-row { flex-direction: column; align-items: stretch; }
+  .archive-search-pill { grid-template-columns: 1fr; }
+  .archive-search-cell { border-right: none; }
+  .open-question-card,
+  .packet-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px;
+  }
+  .q-card-side-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .footer-mid-row { grid-template-columns: 1fr; }
+}

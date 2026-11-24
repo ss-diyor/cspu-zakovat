@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universitet Zakovat Klubi — Savollar va javoblar bazasi</title>
+  <meta name="description" content="Universitet Zakovat intellektual turnirlarida o'ynalgan rasmiy savollar, javoblar, izohlar va tayyor savol paketlari arxivi." />
+
+  <!-- Inter Typography (zakovatklubi.uz font system) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Inline Gold Crest Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0a06'/%3E%3Cpath d='M10 18h44l-3 9v10l3 9H41l-9 7-9-7H10l3-9V27l-3-9z' fill='%2316110a' stroke='%23cba672' stroke-width='3'/%3E%3Ctext x='32' y='38' text-anchor='middle' fill='%23fae8a9' font-family='Arial' font-weight='800' font-size='18'%3EZK%3C/text%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="theme-dark">
+  <!-- Two-Tier Sticky Dual-Theme Header -->
+  <header id="site-header" class="site-header header-dark"></header>
+
+  <!-- Main Single-Page App Content -->
+  <main id="app-main"></main>
+
+  <!-- Editorial Dark Footer -->
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- Hidden Admin Panel Mount -->
+  <div id="admin-root"></div>
+
+  <!-- 100% Static Data File (Replace this single file & re-deploy to publish updates!) -->
+  <script src="data/zakovat-data.js"></script>
+
+  <!-- Zero-Build Vanilla JS Modules (works identically on file:// and https://) -->
+  <script src="js/utils.js"></script>
+  <script src="js/ui-icons.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/public-app.js"></script>
+  <script src="js/admin-app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.ZakovatApp && window.ZakovatApp.Public) {
+        window.ZakovatApp.Public.init();
+      }
+    });
+  </script>
+</body>
+</html>
